@@ -1,0 +1,6 @@
+{
+  "assets": {
+    "assetsPath": "../../public/",
+    "compiledAssetsFile": "./assets.ts"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Assets",
+      "type": "shell",
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "command": "ts-node --project ${workspaceFolder}/src/library/scripts/tsconfig.json ${workspaceFolder}/src/library/scripts/assets_builder.ts ${workspaceFolder}/src/game/config.json"
+    },
+
+    {
+      "label": "Run Yarn",
+      "type": "shell",
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "command": "yarn start"
+    },
+  ]
+}
