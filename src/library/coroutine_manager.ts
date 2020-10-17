@@ -1,7 +1,7 @@
 import { KeyInfoType } from "./keyboard";
 import { IGameState } from "Library";
 import { Entity } from "./entity";
-import { Game } from "../game/game";
+// import { Game } from "../game/game";
 import { BaseGame } from "./base_game";
 import { IS_DEBUG } from "./environment";
 
@@ -19,7 +19,7 @@ type ActiveCoroutine = {
     | { waiting: true; type: "frames"  ; frames: number }
     | { waiting: true; type: "untilKey"; untilKey: keyof KeyInfoType }
   name    : string;
-  owner   : Entity | Game;
+  owner   : Entity | BaseGame<any>;
 };
 
 export type CoroutineId = number;
@@ -33,7 +33,7 @@ export class CoroutineManager {
     this._game = game;
   }
 
-  startCoroutine(name: string, co: GameCoroutine, owner: Entity | Game): CoroutineId {
+  startCoroutine(name: string, co: GameCoroutine, owner: Entity | BaseGame<any>): CoroutineId {
     for (const activeCo of Object.values(this._activeCoroutines)) {
       if (activeCo.name === name) {
         if (IS_DEBUG) {
